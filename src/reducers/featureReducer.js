@@ -6,7 +6,7 @@ const initialState = {
           name: '2019 Ford Mustang',
           image:
             'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
-          features: [{ id: 4, name: 'Rear spoiler', price: 250 }]
+          features: []
         },
         additionalFeatures: [
           { id: 1, name: 'V-6 engine', price: 1500 },
@@ -30,6 +30,18 @@ export const featureReducer = (state=initialState, action) => {
                 }
               }
         };
+        case 'REMOVE_FEATURE': {
+            const feats = [...state.car.features];
+            const filteredFeats = feats.filter(feature => feature.id !== action.payload.id);
+
+            return {
+                ...state,
+                car: {
+                  ...state.car,
+                  features: [...filteredFeats]
+                }
+              }
+        }
         default:
             console.log("from default")
             return state
