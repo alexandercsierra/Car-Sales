@@ -18,17 +18,21 @@ const initialState = {
 };
 
 export const featureReducer = (state=initialState, action) => {
-    console.log("from the reducer", state);
+    // console.log("from the reducer", state);
     switch (action.type) {
         case 'ADD_FEATURE': {
-            console.log("from the addfeature case", action.payload);
-            return {
-                ...state,
-                car: {
-                  ...state.car,
-                  features: [...state.car.features, action.payload]
-                }
-              }
+            console.log("newprice", state.car);
+            if(state.car.features.includes(action.payload)===false){
+                return {
+                    ...state,
+                    car: {
+                      ...state.car, 
+                      price: (state.car.price + action.payload.price),
+                      features: [...state.car.features, action.payload]
+                    }
+                  }
+            }
+            return state;
         };
         case 'REMOVE_FEATURE': {
             const feats = [...state.car.features];
@@ -38,6 +42,7 @@ export const featureReducer = (state=initialState, action) => {
                 ...state,
                 car: {
                   ...state.car,
+                  price: (state.car.price - action.payload.price),
                   features: [...filteredFeats]
                 }
               }
