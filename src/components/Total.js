@@ -6,7 +6,7 @@ const Total = props => {
   console.log("total props", props.additionalPrice)
   return (
     <div className="content">
-      <h4>{`Total Amount: ${props.additionalPrice}`}</h4>
+      <h4>{`Total Amount: $${props.additionalPrice}`}</h4>
     </div>
   );
 };
