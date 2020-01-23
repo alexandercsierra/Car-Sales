@@ -1,6 +1,6 @@
 const initialState = {
 
-        additionalPrice: 0,
+        additionalPrice: 26395,
         car: {
           price: 26395,
           name: '2019 Ford Mustang',
@@ -21,13 +21,15 @@ export const featureReducer = (state=initialState, action) => {
     // console.log("from the reducer", state);
     switch (action.type) {
         case 'ADD_FEATURE': {
-            console.log("newprice", state.car);
+            // console.log("newprice", state);
             if(state.car.features.includes(action.payload)===false){
+                console.log("from the reducer" , state.additionalPrice + action.payload.price);
                 return {
                     ...state,
+                    additionalPrice: state.additionalPrice + action.payload.price,
                     car: {
                       ...state.car, 
-                      price: (state.car.price + action.payload.price),
+                      // price: (state.car.price + action.payload.price),
                       features: [...state.car.features, action.payload]
                     }
                   }
@@ -40,15 +42,16 @@ export const featureReducer = (state=initialState, action) => {
 
             return {
                 ...state,
+                additionalPrice: state.additionalPrice - action.payload.price,
                 car: {
                   ...state.car,
-                  price: (state.car.price - action.payload.price),
+                  // price: (state.car.price - action.payload.price),
                   features: [...filteredFeats]
                 }
               }
         }
         default:
-            console.log("from default")
+            // console.log("from default")
             return state
     }
 }

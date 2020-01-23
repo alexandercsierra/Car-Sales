@@ -4,7 +4,7 @@ import {removeFeature} from '../actions/removeFeatureActions'
 
 
 const AddedFeature = props => {
-  console.log("from added feature", props);
+  // console.log("from added feature", props);
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
@@ -22,7 +22,7 @@ const AddedFeature = props => {
 
 
 const mapStateToProps = state => {
-  console.log("from mapStateToProps", state.car.features);
+  // console.log("from mapStateToProps", state.car.features);
   return {
     addedFeatures: state.car.features
     

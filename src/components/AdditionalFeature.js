@@ -16,7 +16,7 @@ const AdditionalFeature = props => {
 // export default AdditionalFeature;
 
 const mapStateToProps = state => {
-  console.log("from mapStateToProps", state.car.features);
+  // console.log("from mapStateToProps", state.car.features);
   return {
     addedFeatures: state.car.features
     

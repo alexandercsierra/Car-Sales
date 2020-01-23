@@ -16,7 +16,7 @@ const placeholder = (state={}, action) => {
 }
 
 const store = createStore(featureReducer);
-console.log(store.getState());
+// console.log(store.getState());
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(<Provider store={store}><App /></Provider>, rootElement);
