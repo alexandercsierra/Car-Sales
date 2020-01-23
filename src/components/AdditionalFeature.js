@@ -5,12 +5,8 @@ import {addFeature} from '../actions/addedFeatureActions'
 const AdditionalFeature = props => {
   return (
     <li>
-      {/* Add an onClick that will let you add a feature to your car */}
       <button id={props.feature.id} className="button" onClick={e=>{
-        // if (props.addedFeatures.inlcudes(props.feature)===false){
           props.addFeature(props.feature)
-        // }
-        // props.addFeature(props.feature)
       }}>Add</button>
       {props.feature.name} (+{props.feature.price})
     </li>
